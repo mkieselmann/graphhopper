@@ -30,10 +30,7 @@ import com.graphhopper.routing.profiles.EnumEncodedValue;
 import com.graphhopper.routing.profiles.RoadEnvironment;
 import com.graphhopper.routing.querygraph.QueryGraph;
 import com.graphhopper.routing.subnetwork.PrepareRoutingSubnetworks;
-import com.graphhopper.routing.template.AlternativeRoutingTemplate;
-import com.graphhopper.routing.template.RoundTripRoutingTemplate;
-import com.graphhopper.routing.template.RoutingTemplate;
-import com.graphhopper.routing.template.ViaRoutingTemplate;
+import com.graphhopper.routing.template.*;
 import com.graphhopper.routing.util.*;
 import com.graphhopper.routing.util.parsers.DefaultTagParserFactory;
 import com.graphhopper.routing.util.parsers.TagParserFactory;
@@ -1033,6 +1030,8 @@ public class GraphHopper implements GraphHopperAPI {
                 routingTemplate = new RoundTripRoutingTemplate(request, ghRsp, locationIndex, encodingManager, maxRoundTripRetries);
             else if (ALT_ROUTE.equalsIgnoreCase(algoStr))
                 routingTemplate = new AlternativeRoutingTemplate(request, ghRsp, locationIndex, encodingManager);
+            else if (TRACK_ROUTE.equalsIgnoreCase(algoStr))
+                routingTemplate = new TrackRoutingTemplate(request, ghRsp, locationIndex, encodingManager);
             else
                 routingTemplate = new ViaRoutingTemplate(request, ghRsp, locationIndex, encodingManager);
 

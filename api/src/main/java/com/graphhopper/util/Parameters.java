@@ -58,6 +58,11 @@ public class Parameters {
         public static final String ROUND_TRIP = "round_trip";
 
         /**
+         * track routing algorithm (not yet for CH)
+         */
+        public static final String TRACK_ROUTE = "track_route";
+
+        /**
          * All public properties for alternative routing.
          */
         public static final class AltRoute {
@@ -84,6 +89,13 @@ public class Parameters {
             public static final String SEED = ROUND_TRIP + ".seed";
             public static final String POINTS = ROUND_TRIP + ".points";
             public static final String INIT_MAX_RETRIES = ROUTING_INIT_PREFIX + ROUND_TRIP + ".max_retries";
+        }
+
+        /**
+         * All public properties for track calculation.
+         */
+        public static final class TrackRoute {
+            public static final String TRACKPOINTS = TRACK_ROUTE + ".track_points";
         }
     }
 
